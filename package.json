@@ -1,0 +1,16 @@
+{
+    "name": "screeps",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "tsc",
+        "push:local": "robocopy \"dist\" \"C:\\Users\\chris\\AppData\\Local\\Screeps\\scripts\\127_0_0_1___21025\\default\" /MIR /NFL /NDL /NJH /NJS /NP > NUL 2>&1 || exit 0",
+        "deploy": "npm run build && npm run push:local"
+    },
+    "devDependencies": {
+        "@types/screeps": "^3.3.8",
+        "grunt": "^1.6.1",
+        "grunt-screeps": "^1.5.0",
+        "typescript": "^5.1.6"
+    }
+}
