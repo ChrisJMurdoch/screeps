@@ -1,8 +1,8 @@
+import _Room from "./room";
 
 export const loop = (): void => {
-    console.log('tick')
-    for (const name in Game.creeps) {
-        const creep = Game.creeps[name];
-        creep.say('tick');
-    }
+
+    // Run rooms
+    for (const room of Object.values(Game.rooms))
+        new _Room(room).spawn();
 };

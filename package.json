@@ -3,14 +3,19 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "build": "tsc",
-        "push:local": "robocopy \"dist\" \"C:\\Users\\chris\\AppData\\Local\\Screeps\\scripts\\127_0_0_1___21025\\default\" /MIR /NFL /NDL /NJH /NJS /NP > NUL 2>&1 || exit 0",
-        "deploy": "npm run build && npm run push:local"
+        "build": "esbuild src/*.ts --outdir=dist --format=cjs --platform=node --target=es2019",
+        "push": "robocopy \"dist\" \"C:\\Users\\chris\\AppData\\Local\\Screeps\\scripts\\127_0_0_1___21025\\default\" /MIR > NUL 2>&1 || exit 0",
+        "deploy": "npm run build && npm run push",
+        "dev": "nodemon --watch src --ext ts --exec \"npm run deploy\"",
+        "type-check": "tsc --noEmit"
     },
     "devDependencies": {
         "@types/screeps": "^3.3.8",
+        "esbuild": "^0.27.2",
         "grunt": "^1.6.1",
         "grunt-screeps": "^1.5.0",
+        "nodemon": "^3.1.11",
+        "onchange": "^7.1.0",
         "typescript": "^5.1.6"
     }
 }

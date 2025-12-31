@@ -1,10 +1,14 @@
 {
+    "include": ["src/**/*.ts"],
     "compilerOptions": {
-        "target": "ES2020",
+        "target": "ES2019",
         "module": "CommonJS",
         "outDir": "dist",
         "rootDir": "src",
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["screeps"],
+        "incremental": true,
+        "tsBuildInfoFile": "dist/.tsbuildinfo"
     }
 }
